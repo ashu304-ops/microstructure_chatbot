@@ -21,7 +21,9 @@ services:
     networks:
       - chatbot_network
     volumes:
-      - ./data/users.db:/app/users.db
+      - ./data:/app/data
+    environment:
+      - DB_PATH=/app/data/users.db
 
   nlp_service:
     build:
@@ -41,7 +43,9 @@ services:
     networks:
       - chatbot_network
     volumes:
-      - ./data/conversations.db:/app/conversations.db
+      - ./data:/app/data
+    environment:
+      - DB_PATH=/app/data/conversations.db
 
   frontend:
     build:
@@ -55,6 +59,3 @@ services:
 networks:
   chatbot_network:
     driver: bridge
-
-volumes:
-  data:
