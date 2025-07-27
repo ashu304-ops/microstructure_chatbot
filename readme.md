@@ -1,6 +1,9 @@
 Mechanical Domain Chatbot
-Welcome to the Mechanical Domain Chatbot! This project is a Dockerized web application that answers mechanical engineering questions (e.g., “What is Young’s modulus?”) using a microservice architecture. It leverages natural language processing (NLP) to detect user intents and provides responses from a knowledge base. The application is built with Flask microservices, a React frontend, and orchestrated with Docker Compose.
+
+This project is a Dockerized web application that answers mechanical engineering questions (e.g., “What is Young’s modulus?”) using a microservice architecture. It leverages natural language processing (NLP) to detect user intents and provides responses from a knowledge base. The application is built with Flask microservices, a React frontend, and orchestrated with Docker Compose.
 This README.md explains the microservice architecture and provides step-by-step instructions to set up and run the application.
+
+
 Table of Contents
 
 Overview
@@ -55,6 +58,12 @@ Interactions: Sends user messages to /chat endpoint and displays responses.
 
 
 Architecture Diagram
+
+
+
+
+
+
 +-------------------+
 |     Frontend      |  (React, http://localhost:8000)
 |     (Port 8000)   |
@@ -80,6 +89,8 @@ Data Storage: users.db and conversations.db are stored in a shared data director
 Scalability: Each service can be scaled independently with Docker Compose.
 
 Project Structure
+
+
 project1/
 ├── data/
 │   ├── users.db
