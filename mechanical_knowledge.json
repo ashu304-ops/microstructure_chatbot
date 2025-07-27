@@ -1,0 +1,400 @@
+{
+  "questions": [
+    {
+      "question": "What is stress in mechanical engineering?",
+      "answer": "Stress is the internal resistance of a material to external forces, measured as force per unit area (e.g., Pascals). It’s defined as σ = F/A, where F is force and A is cross-sectional area."
+    },
+    {
+      "question": "What is strain in mechanics?",
+      "answer": "Strain is the measure of deformation of a material due to stress, defined as the change in length divided by the original length (ε = ΔL/L). It is dimensionless."
+    },
+    {
+      "question": "What is Young’s modulus?",
+      "answer": "Young’s modulus (E) is a measure of a material’s stiffness, defined as the ratio of stress to strain in the linear elastic region. It’s given by E = σ/ε, where σ is stress and ε is strain."
+    },
+    {
+      "question": "What is a free body diagram?",
+      "answer": "A free body diagram (FBD) is a graphical representation of an object with all external forces and moments acting on it, used to analyze forces in mechanics."
+    },
+    {
+      "question": "What is the first law of thermodynamics?",
+      "answer": "The first law of thermodynamics, or the law of energy conservation, states that the total energy of an isolated system is constant. Energy can be transformed but not created or destroyed. Mathematically, ΔU = Q - W, where ΔU is the change in internal energy, Q is heat added, and W is work done by the system."
+    },
+    {
+      "question": "What is the second law of thermodynamics?",
+      "answer": "The second law of thermodynamics states that the entropy of an isolated system always increases over time, or remains constant in reversible processes. It implies that heat cannot spontaneously flow from a colder to a hotter body."
+    },
+    {
+      "question": "What is shear stress?",
+      "answer": "Shear stress is the component of stress acting parallel to a material’s surface, causing deformation by sliding. It’s calculated as τ = F/A, where F is the shear force and A is the area."
+    },
+    {
+      "question": "What is Hooke’s law?",
+      "answer": "Hooke’s law states that the stress in a material is proportional to the strain within the elastic limit, expressed as σ = Eε, where E is Young’s modulus."
+    },
+    {
+      "question": "What is a moment in mechanics?",
+      "answer": "A moment is the rotational effect of a force about a point or axis, calculated as M = F × d, where F is the force and d is the perpendicular distance from the point of rotation."
+    },
+    {
+      "question": "What is the difference between tensile and compressive stress?",
+      "answer": "Tensile stress pulls a material apart, increasing its length, while compressive stress pushes a material together, reducing its length. Both are normal stresses, acting perpendicular to the surface."
+    },
+    {
+      "question": "What is Poisson’s ratio?",
+      "answer": "Poisson’s ratio (ν) is the ratio of transverse strain to axial strain when a material is stretched or compressed. It’s defined as ν = -ε_transverse/ε_axial."
+    },
+    {
+      "question": "What is fatigue failure?",
+      "answer": "Fatigue failure occurs when a material fails under repeated cyclic loading at stress levels below its ultimate tensile strength, due to crack initiation and propagation."
+    },
+    {
+      "question": "What is the modulus of elasticity?",
+      "answer": "The modulus of elasticity, or Young’s modulus, measures a material’s stiffness, defined as the ratio of stress to strain in the elastic region (E = σ/ε)."
+    },
+    {
+      "question": "What is a cantilever beam?",
+      "answer": "A cantilever beam is a beam fixed at one end and free at the other, commonly used in structures like bridges or balconies, subjected to bending moments and shear forces."
+    },
+    {
+      "question": "What is the moment of inertia?",
+      "answer": "The moment of inertia (I) quantifies a section’s resistance to bending, depending on the shape and distribution of the area relative to an axis."
+    },
+    {
+      "question": "What is Newton’s first law of motion?",
+      "answer": "Newton’s first law states that an object remains at rest or in uniform motion unless acted upon by an external force (inertia)."
+    },
+    {
+      "question": "What is Newton’s second law of motion?",
+      "answer": "Newton’s second law states that the force on an object is equal to its mass times acceleration (F = ma)."
+    },
+    {
+      "question": "What is Newton’s third law of motion?",
+      "answer": "Newton’s third law states that for every action, there is an equal and opposite reaction."
+    },
+    {
+      "question": "What is the Bernoulli principle?",
+      "answer": "The Bernoulli principle states that an increase in the speed of a fluid occurs simultaneously with a decrease in pressure or potential energy."
+    },
+    {
+      "question": "What is viscosity?",
+      "answer": "Viscosity is a measure of a fluid’s resistance to flow, caused by internal friction between fluid molecules."
+    },
+    {
+      "question": "What is laminar flow?",
+      "answer": "Laminar flow is a smooth, orderly flow of a fluid in parallel layers with minimal mixing, typically at low velocities."
+    },
+    {
+      "question": "What is turbulent flow?",
+      "answer": "Turbulent flow is chaotic fluid motion with eddies and mixing, occurring at high velocities or in complex geometries."
+    },
+    {
+      "question": "What is the Reynolds number?",
+      "answer": "The Reynolds number (Re) predicts flow type (laminar or turbulent) and is defined as Re = ρvD/μ, where ρ is density, v is velocity, D is diameter, and μ is viscosity."
+    },
+    {
+      "question": "What is a gear?",
+      "answer": "A gear is a rotating machine part with teeth that mesh with another gear to transmit torque and rotational motion."
+    },
+    {
+      "question": "What is a spur gear?",
+      "answer": "A spur gear is a cylindrical gear with straight teeth parallel to the axis of rotation, used for simple power transmission."
+    },
+    {
+      "question": "What is a bevel gear?",
+      "answer": "A bevel gear is a gear with conical teeth, used to transmit motion between intersecting shafts, typically at 90 degrees."
+    },
+    {
+      "question": "What is a bearing?",
+      "answer": "A bearing is a machine element that reduces friction between moving parts and supports rotational or linear motion."
+    },
+    {
+      "question": "What is the difference between ductile and brittle materials?",
+      "answer": "Ductile materials deform significantly before fracturing (e.g., steel), while brittle materials fracture with little deformation (e.g., glass)."
+    },
+    {
+      "question": "What is creep in materials?",
+      "answer": "Creep is the slow, time-dependent deformation of a material under constant stress, typically at high temperatures."
+    },
+    {
+      "question": "What is the ultimate tensile strength?",
+      "answer": "Ultimate tensile strength (UTS) is the maximum stress a material can withstand before fracturing under tension."
+    },
+    {
+      "question": "What is a stress-strain curve?",
+      "answer": "A stress-strain curve plots stress versus strain for a material, showing elastic and plastic behavior, yield point, and ultimate strength."
+    },
+    {
+      "question": "What is the yield strength?",
+      "answer": "Yield strength is the stress at which a material begins to deform plastically, marking the transition from elastic to permanent deformation."
+    },
+    {
+      "question": "What is a truss?",
+      "answer": "A truss is a structure composed of triangular units, used to support loads efficiently in bridges and roofs."
+    },
+    {
+      "question": "What is a pulley?",
+      "answer": "A pulley is a simple machine with a grooved wheel and rope, used to lift or move loads by changing the direction of force."
+    },
+    {
+      "question": "What is the third law of thermodynamics?",
+      "answer": "The third law of thermodynamics states that the entropy of a perfect crystal at absolute zero is zero, providing a reference point for entropy calculations."
+    },
+    {
+      "question": "What is specific heat?",
+      "answer": "Specific heat is the amount of heat required to raise the temperature of a unit mass of a substance by one degree (J/kg·K)."
+    },
+    {
+      "question": "What is thermal conductivity?",
+      "answer": "Thermal conductivity (k) is a material’s ability to conduct heat, measured as the rate of heat transfer through a unit thickness (W/m·K)."
+    },
+    {
+      "question": "What is convection?",
+      "answer": "Convection is the transfer of heat by the movement of a fluid, such as air or water, driven by temperature differences."
+    },
+    {
+      "question": "What is radiation heat transfer?",
+      "answer": "Radiation is the transfer of heat through electromagnetic waves, such as infrared, without requiring a medium."
+    },
+    {
+      "question": "What is a heat exchanger?",
+      "answer": "A heat exchanger is a device that transfers heat between two or more fluids without mixing them, used in HVAC and industrial applications."
+    },
+    {
+      "question": "What is the Carnot cycle?",
+      "answer": "The Carnot cycle is an ideal thermodynamic cycle consisting of two isothermal and two adiabatic processes, defining the maximum efficiency of a heat engine."
+    },
+    {
+      "question": "What is entropy?",
+      "answer": "Entropy is a measure of disorder or randomness in a system, quantifying the unavailable energy for work in a thermodynamic process."
+    },
+    {
+      "question": "What is a centrifugal pump?",
+      "answer": "A centrifugal pump uses a rotating impeller to increase the velocity and pressure of a fluid, commonly used for liquid transport."
+    },
+    {
+      "question": "What is a reciprocating pump?",
+      "answer": "A reciprocating pump uses a piston or plunger to move fluid through a cylinder, suitable for high-pressure applications."
+    },
+    {
+      "question": "What is a turbine?",
+      "answer": "A turbine is a device that converts fluid energy (e.g., steam, water, or gas) into mechanical work, often used in power generation."
+    },
+    {
+      "question": "What is a compressor?",
+      "answer": "A compressor increases the pressure of a gas by reducing its volume, used in refrigeration and air systems."
+    },
+    {
+      "question": "What is a clutch?",
+      "answer": "A clutch is a mechanical device that engages and disengages power transmission between a driving and driven shaft."
+    },
+    {
+      "question": "What is a brake?",
+      "answer": "A brake is a device that slows or stops motion by applying friction or other forces, commonly used in vehicles."
+    },
+    {
+      "question": "What is a cam?",
+      "answer": "A cam is a rotating or sliding component that converts rotational motion into linear motion or vice versa, used in engines."
+    },
+    {
+      "question": "What is a flywheel?",
+      "answer": "A flywheel is a rotating disc that stores kinetic energy and smooths out fluctuations in rotational speed."
+    },
+    {
+      "question": "What is the difference between static and dynamic equilibrium?",
+      "answer": "Static equilibrium occurs when an object is at rest with zero net force and torque, while dynamic equilibrium involves constant velocity with zero net force."
+    },
+    {
+      "question": "What is a moment of couple?",
+      "answer": "A moment of couple is the rotational effect of two equal and opposite forces acting at a distance, producing pure rotation without translation."
+    },
+    {
+      "question": "What is friction?",
+      "answer": "Friction is the force resisting relative motion between two surfaces in contact, proportional to the normal force (F = μN)."
+    },
+    {
+      "question": "What is the coefficient of friction?",
+      "answer": "The coefficient of friction (μ) is a dimensionless value representing the ratio of frictional force to normal force between two surfaces."
+    },
+    {
+      "question": "What is a Mohr’s circle?",
+      "answer": "Mohr’s circle is a graphical method to determine principal stresses and maximum shear stresses in a material under complex loading."
+    },
+    {
+      "question": "What is a composite material?",
+      "answer": "A composite material combines two or more materials with different properties to achieve superior strength, weight, or durability (e.g., carbon fiber)."
+    },
+    {
+      "question": "What is annealing?",
+      "answer": "Annealing is a heat treatment process that softens a material, reduces internal stresses, and improves ductility by heating and slow cooling."
+    },
+    {
+      "question": "What is quenching?",
+      "answer": "Quenching is a heat treatment process where a material is rapidly cooled from a high temperature to increase hardness but may increase brittleness."
+    },
+    {
+      "question": "What is tempering?",
+      "answer": "Tempering is a heat treatment process that follows quenching, heating a material to a lower temperature to reduce brittleness while maintaining hardness."
+    },
+    {
+      "question": "What is a welded joint?",
+      "answer": "A welded joint is a permanent joint formed by melting and fusing materials, typically metals, using heat or pressure."
+    },
+    {
+      "question": "What is a bolted joint?",
+      "answer": "A bolted joint is a detachable joint using bolts to fasten components together, allowing disassembly."
+    },
+    {
+      "question": "What is a riveted joint?",
+      "answer": "A riveted joint is a permanent joint using rivets to fasten metal sheets, common in older structures like bridges."
+    },
+    {
+      "question": "What is a kinematic pair?",
+      "answer": "A kinematic pair is a connection between two rigid bodies that allows specific relative motion, such as sliding or rotating."
+    },
+    {
+      "question": "What is a kinematic chain?",
+      "answer": "A kinematic chain is a series of kinematic pairs connected to form a mechanism, allowing controlled motion."
+    },
+    {
+      "question": "What is a mechanism?",
+      "answer": "A mechanism is a system of rigid bodies connected by kinematic pairs to transmit or transform motion."
+    },
+    {
+      "question": "What is a machine?",
+      "answer": "A machine is a device that uses a mechanism to perform work, often converting energy into useful output."
+    },
+    {
+      "question": "What is the difference between a mechanism and a machine?",
+      "answer": "A mechanism is a system for motion transfer, while a machine incorporates mechanisms to perform work with energy input."
+    },
+    {
+      "question": "What is a four-bar linkage?",
+      "answer": "A four-bar linkage is a mechanism with four rigid links connected by joints, used to produce specific motion paths."
+    },
+    {
+      "question": "What is a slider-crank mechanism?",
+      "answer": "A slider-crank mechanism converts rotational motion to linear motion or vice versa, commonly used in engines."
+    },
+    {
+      "question": "What is a heat engine?",
+      "answer": "A heat engine converts heat energy into mechanical work, operating on a thermodynamic cycle (e.g., steam engine, internal combustion engine)."
+    },
+    {
+      "question": "What is a Rankine cycle?",
+      "answer": "The Rankine cycle is a thermodynamic cycle used in steam power plants, consisting of isentropic compression, heat addition, isentropic expansion, and heat rejection."
+    },
+    {
+      "question": "What is a Brayton cycle?",
+      "answer": "The Brayton cycle is a thermodynamic cycle used in gas turbines, involving compression, heat addition, expansion, and heat rejection."
+    },
+    {
+      "question": "What is a refrigeration cycle?",
+      "answer": "A refrigeration cycle is a thermodynamic cycle that removes heat from a low-temperature space and rejects it to a high-temperature space, used in refrigerators and ACs."
+    },
+    {
+      "question": "What is a psychrometric chart?",
+      "answer": "A psychrometric chart plots the properties of moist air (e.g., temperature, humidity) to analyze air conditioning processes."
+    },
+    {
+      "question": "What is a venturi effect?",
+      "answer": "The venturi effect is the reduction in fluid pressure when a fluid flows through a constricted section of a pipe, per Bernoulli’s principle."
+    },
+    {
+      "question": "What is cavitation?",
+      "answer": "Cavitation is the formation and collapse of vapor bubbles in a liquid due to low pressure, often damaging pumps or propellers."
+    },
+    {
+      "question": "What is a hydraulic system?",
+      "answer": "A hydraulic system uses incompressible fluid to transmit power, leveraging Pascal’s principle for force amplification."
+    },
+    {
+      "question": "What is a pneumatic system?",
+      "answer": "A pneumatic system uses compressed gas to transmit power, commonly used in automation and tools."
+    },
+    {
+      "question": "What is a governor in mechanical engineering?",
+      "answer": "A governor is a device that regulates the speed of a machine, such as an engine, by controlling fuel or steam input."
+    },
+    {
+      "question": "What is a spring?",
+      "answer": "A spring is an elastic device that stores mechanical energy and exerts a force when compressed or stretched."
+    },
+    {
+      "question": "What is a damper?",
+      "answer": "A damper is a device that dissipates energy to reduce vibrations or oscillations in a mechanical system."
+    },
+    {
+      "question": "What is resonance?",
+      "answer": "Resonance is the phenomenon where a system oscillates with maximum amplitude at its natural frequency when subjected to an external force."
+    },
+    {
+      "question": "What is the natural frequency?",
+      "answer": "The natural frequency is the frequency at which a system oscillates freely without external forces."
+    },
+    {
+      "question": "What is damping ratio?",
+      "answer": "The damping ratio is a dimensionless measure of how oscillations in a system decay after a disturbance, affecting system stability."
+    },
+    {
+      "question": "What is a gear ratio?",
+      "answer": "The gear ratio is the ratio of the number of teeth on the driven gear to the driving gear, determining speed and torque changes."
+    },
+    {
+      "question": "What is a belt drive?",
+      "answer": "A belt drive is a system that transmits power between shafts using a flexible belt, often used in machinery."
+    },
+    {
+      "question": "What is a chain drive?",
+      "answer": "A chain drive uses a chain and sprockets to transmit power, offering higher strength than belts."
+    },
+    {
+      "question": "What is a coupling?",
+      "answer": "A coupling is a device that connects two shafts to transmit power while accommodating misalignment."
+    },
+    {
+      "question": "What is a universal joint?",
+      "answer": "A universal joint allows power transmission between two shafts at an angle, enabling flexible motion."
+    },
+    {
+      "question": "What is a clutch plate?",
+      "answer": "A clutch plate is a component in a clutch that engages or disengages power transmission by pressing against a flywheel."
+    },
+    {
+      "question": "What is a differential?",
+      "answer": "A differential is a gear arrangement that allows wheels to rotate at different speeds, used in vehicles for smooth turning."
+    },
+    {
+      "question": "What is a torsion bar?",
+      "answer": "A torsion bar is a spring that resists twisting, used in vehicle suspensions to absorb shocks."
+    },
+    {
+      "question": "What is a knuckle joint?",
+      "answer": "A knuckle joint is a mechanical joint that allows rotational motion between two rods, used in tensile applications."
+    },
+    {
+      "question": "What is a cotter joint?",
+      "answer": "A cotter joint is a detachable joint that uses a cotter pin to connect two rods, common in machinery."
+    },
+    {
+      "question": "What is a screw jack?",
+      "answer": "A screw jack is a mechanical device that converts rotational motion into linear motion to lift heavy loads."
+    },
+    {
+      "question": "What is a lever?",
+      "answer": "A lever is a simple machine consisting of a rigid bar pivoting about a fulcrum to amplify force or motion."
+    },
+    {
+      "question": "What is mechanical advantage?",
+      "answer": "Mechanical advantage is the ratio of output force to input force in a machine, indicating force amplification."
+    },
+    {
+      "question": "What is a worm gear?",
+      "answer": "A worm gear is a gear arrangement with a worm (screw) meshing with a gear, used for high gear reduction ratios."
+    },
+    {
+      "question": "What is a rack and pinion?",
+      "answer": "A rack and pinion converts rotational motion to linear motion, with a gear (pinion) meshing with a linear gear (rack)."
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 375B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from dockerfile.nlp_service
+#2 transferring dockerfile:
+#2 transferring dockerfile: 462B 0.0s done
+#2 DONE 0.8s
+
+#3 [internal] load metadata for docker.io/library/python:3.9-slim
+#3 DONE 1.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context:
+#4 transferring context: 2B done
+#4 DONE 0.9s
+
+#5 [1/6] FROM docker.io/library/python:3.9-slim@sha256:4b826e2ca2191c24a03bdbf0c342a73c6ee4ce929eac5ebc47fef78f66b839d6
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 15.25MB 0.4s done
+#6 DONE 1.3s
+
+#7 [2/6] WORKDIR /app
+#7 CACHED
+
+#8 [3/6] COPY nlp_service.py .
+#8 CACHED
+
+#9 [4/6] COPY requirements.txt .
+#9 CACHED
+
+#10 [5/6] COPY en_core_web_sm  /usr/local/lib/python3.9/site-packages/en_core_web_sm
+#10 CACHED
+
+#11 [6/6] RUN pip install --no-cache-dir --upgrade pip     && pip install --no-cache-dir -r requirements.txt     && python -c "import spacy; nlp = spacy.load('en_core_web_sm'); print('Model loaded successfully')"
+#11 6.331 Requirement already satisfied: pip in /usr/local/lib/python3.9/site-packages (23.0.1)
+#11 6.917 Collecting pip
+#11 7.231   Downloading pip-25.1.1-py3-none-any.whl (1.8 MB)
+#11 7.730      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 4.1 MB/s eta 0:00:00
+#11 7.838 Installing collected packages: pip
+#11 7.839   Attempting uninstall: pip
+#11 7.841     Found existing installation: pip 23.0.1
+#11 8.283     Uninstalling pip-23.0.1:
+#11 9.332       Successfully uninstalled pip-23.0.1
+#11 13.43 Successfully installed pip-25.1.1
+#11 13.44 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#11 15.39 Collecting flask==2.3.2 (from -r requirements.txt (line 1))
+#11 15.54   Downloading Flask-2.3.2-py3-none-any.whl.metadata (3.7 kB)
+#11 15.64 Collecting flask-cors==4.0.1 (from -r requirements.txt (line 2))
+#11 15.70   Downloading Flask_Cors-4.0.1-py2.py3-none-any.whl.metadata (5.5 kB)
+#11 16.25 Collecting spacy==3.8.0 (from -r requirements.txt (line 3))
+#11 16.31   Downloading spacy-3.8.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (27 kB)
+#11 16.44 Collecting fuzzywuzzy==0.18.0 (from -r requirements.txt (line 4))
+#11 16.49   Downloading fuzzywuzzy-0.18.0-py2.py3-none-any.whl.metadata (4.9 kB)
+#11 16.58 Collecting python-Levenshtein==0.25.1 (from -r requirements.txt (line 5))
+#11 16.64   Downloading python_Levenshtein-0.25.1-py3-none-any.whl.metadata (3.7 kB)
+#11 16.75 Collecting Werkzeug>=2.3.3 (from flask==2.3.2->-r requirements.txt (line 1))
+#11 16.80   Downloading werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+#11 16.88 Collecting Jinja2>=3.1.2 (from flask==2.3.2->-r requirements.txt (line 1))
+#11 16.93   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#11 17.00 Collecting itsdangerous>=2.1.2 (from flask==2.3.2->-r requirements.txt (line 1))
+#11 17.06   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+#11 17.14 Collecting click>=8.1.3 (from flask==2.3.2->-r requirements.txt (line 1))
+#11 17.20   Downloading click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+#11 17.28 Collecting blinker>=1.6.2 (from flask==2.3.2->-r requirements.txt (line 1))
+#11 17.34   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+#11 17.50 Collecting importlib-metadata>=3.6.0 (from flask==2.3.2->-r requirements.txt (line 1))
+#11 17.56   Downloading importlib_metadata-8.7.0-py3-none-any.whl.metadata (4.8 kB)
+#11 17.67 Collecting spacy-legacy<3.1.0,>=3.0.11 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 17.72   Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl.metadata (2.8 kB)
+#11 17.80 Collecting spacy-loggers<2.0.0,>=1.0.0 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 17.85   Downloading spacy_loggers-1.0.5-py3-none-any.whl.metadata (23 kB)
+#11 18.02 Collecting murmurhash<1.1.0,>=0.28.0 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 18.08   Downloading murmurhash-1.0.13-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.2 kB)
+#11 18.22 Collecting cymem<2.1.0,>=2.0.2 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 18.27   Downloading cymem-2.0.11-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.5 kB)
+#11 18.41 Collecting preshed<3.1.0,>=3.0.2 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 18.47   Downloading preshed-3.0.10-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.4 kB)
+#11 18.99 Collecting thinc<8.3.0,>=8.2.2 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 19.04   Downloading thinc-8.2.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (15 kB)
+#11 19.15 Collecting wasabi<1.2.0,>=0.9.1 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 19.21   Downloading wasabi-1.1.3-py3-none-any.whl.metadata (28 kB)
+#11 19.39 Collecting srsly<3.0.0,>=2.4.3 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 19.44   Downloading srsly-2.5.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (19 kB)
+#11 19.53 Collecting catalogue<2.1.0,>=2.0.6 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 19.58   Downloading catalogue-2.0.10-py3-none-any.whl.metadata (14 kB)
+#11 19.65 Collecting weasel<0.5.0,>=0.1.0 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 19.70   Downloading weasel-0.4.1-py3-none-any.whl.metadata (4.6 kB)
+#11 19.82 Collecting typer<1.0.0,>=0.3.0 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 19.87   Downloading typer-0.16.0-py3-none-any.whl.metadata (15 kB)
+#11 20.06 Collecting tqdm<5.0.0,>=4.38.0 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 20.12   Downloading tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+#11 20.30 Collecting requests<3.0.0,>=2.13.0 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 20.36   Downloading requests-2.32.4-py3-none-any.whl.metadata (4.9 kB)
+#11 20.84 Collecting pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 20.89   Downloading pydantic-2.11.7-py3-none-any.whl.metadata (67 kB)
+#11 20.92 Requirement already satisfied: setuptools in /usr/local/lib/python3.9/site-packages (from spacy==3.8.0->-r requirements.txt (line 3)) (58.1.0)
+#11 20.99 Collecting packaging>=20.0 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 21.04   Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+#11 21.12 Collecting langcodes<4.0.0,>=3.2.0 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 21.19   Downloading langcodes-3.5.0-py3-none-any.whl.metadata (29 kB)
+#11 21.82 Collecting numpy>=1.19.0 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 21.87   Downloading numpy-2.0.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (60 kB)
+#11 22.46 Collecting Levenshtein==0.25.1 (from python-Levenshtein==0.25.1->-r requirements.txt (line 5))
+#11 22.51   Downloading Levenshtein-0.25.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.3 kB)
+#11 24.43 Collecting rapidfuzz<4.0.0,>=3.8.0 (from Levenshtein==0.25.1->python-Levenshtein==0.25.1->-r requirements.txt (line 5))
+#11 24.48   Downloading rapidfuzz-3.13.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+#11 24.55 Collecting language-data>=1.2 (from langcodes<4.0.0,>=3.2.0->spacy==3.8.0->-r requirements.txt (line 3))
+#11 24.60   Downloading language_data-1.3.0-py3-none-any.whl.metadata (4.3 kB)
+#11 24.67 Collecting annotated-types>=0.6.0 (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy==3.8.0->-r requirements.txt (line 3))
+#11 24.73   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+#11 27.09 Collecting pydantic-core==2.33.2 (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy==3.8.0->-r requirements.txt (line 3))
+#11 27.15   Downloading pydantic_core-2.33.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+#11 27.35 Collecting typing-extensions>=4.12.2 (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy==3.8.0->-r requirements.txt (line 3))
+#11 27.40   Downloading typing_extensions-4.14.1-py3-none-any.whl.metadata (3.0 kB)
+#11 27.47 Collecting typing-inspection>=0.4.0 (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy==3.8.0->-r requirements.txt (line 3))
+#11 27.53   Downloading typing_inspection-0.4.1-py3-none-any.whl.metadata (2.6 kB)
+#11 27.83 Collecting charset_normalizer<4,>=2 (from requests<3.0.0,>=2.13.0->spacy==3.8.0->-r requirements.txt (line 3))
+#11 27.88   Downloading charset_normalizer-3.4.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+#11 27.99 Collecting idna<4,>=2.5 (from requests<3.0.0,>=2.13.0->spacy==3.8.0->-r requirements.txt (line 3))
+#11 28.04   Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+#11 28.19 Collecting urllib3<3,>=1.21.1 (from requests<3.0.0,>=2.13.0->spacy==3.8.0->-r requirements.txt (line 3))
+#11 28.24   Downloading urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
+#11 28.33 Collecting certifi>=2017.4.17 (from requests<3.0.0,>=2.13.0->spacy==3.8.0->-r requirements.txt (line 3))
+#11 28.39   Downloading certifi-2025.7.14-py3-none-any.whl.metadata (2.4 kB)
+#11 28.60 Collecting blis<0.8.0,>=0.7.8 (from thinc<8.3.0,>=8.2.2->spacy==3.8.0->-r requirements.txt (line 3))
+#11 28.66   Downloading blis-0.7.11-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.4 kB)
+#11 28.77 Collecting confection<1.0.0,>=0.0.1 (from thinc<8.3.0,>=8.2.2->spacy==3.8.0->-r requirements.txt (line 3))
+#11 28.83   Downloading confection-0.1.5-py3-none-any.whl.metadata (19 kB)
+#11 28.87 Collecting numpy>=1.19.0 (from spacy==3.8.0->-r requirements.txt (line 3))
+#11 28.93   Downloading numpy-1.26.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+#11 29.05 Collecting shellingham>=1.3.0 (from typer<1.0.0,>=0.3.0->spacy==3.8.0->-r requirements.txt (line 3))
+#11 29.11   Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+#11 29.27 Collecting rich>=10.11.0 (from typer<1.0.0,>=0.3.0->spacy==3.8.0->-r requirements.txt (line 3))
+#11 29.33   Downloading rich-14.1.0-py3-none-any.whl.metadata (18 kB)
+#11 29.44 Collecting cloudpathlib<1.0.0,>=0.7.0 (from weasel<0.5.0,>=0.1.0->spacy==3.8.0->-r requirements.txt (line 3))
+#11 29.49   Downloading cloudpathlib-0.21.1-py3-none-any.whl.metadata (14 kB)
+#11 29.61 Collecting smart-open<8.0.0,>=5.2.1 (from weasel<0.5.0,>=0.1.0->spacy==3.8.0->-r requirements.txt (line 3))
+#11 29.67   Downloading smart_open-7.3.0.post1-py3-none-any.whl.metadata (24 kB)
+#11 31.06 Collecting wrapt (from smart-open<8.0.0,>=5.2.1->weasel<0.5.0,>=0.1.0->spacy==3.8.0->-r requirements.txt (line 3))
+#11 31.12   Downloading wrapt-1.17.2-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)
+#11 31.32 Collecting zipp>=3.20 (from importlib-metadata>=3.6.0->flask==2.3.2->-r requirements.txt (line 1))
+#11 31.37   Downloading zipp-3.23.0-py3-none-any.whl.metadata (3.6 kB)
+#11 31.73 Collecting MarkupSafe>=2.0 (from Jinja2>=3.1.2->flask==2.3.2->-r requirements.txt (line 1))
+#11 31.79   Downloading MarkupSafe-3.0.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+#11 32.06 Collecting marisa-trie>=1.1.0 (from language-data>=1.2->langcodes<4.0.0,>=3.2.0->spacy==3.8.0->-r requirements.txt (line 3))
+#11 32.12   Downloading marisa_trie-1.2.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.0 kB)
+#11 32.27 Collecting markdown-it-py>=2.2.0 (from rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy==3.8.0->-r requirements.txt (line 3))
+#11 32.34   Downloading markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+#11 32.49 Collecting pygments<3.0.0,>=2.13.0 (from rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy==3.8.0->-r requirements.txt (line 3))
+#11 32.55   Downloading pygments-2.19.2-py3-none-any.whl.metadata (2.5 kB)
+#11 32.63 Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy==3.8.0->-r requirements.txt (line 3))
+#11 32.68   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+#11 32.78 WARNING: The candidate selected for download or install is a yanked version: 'spacy' candidate (version 3.8.0 at https://files.pythonhosted.org/packages/ad/61/b406e06b2de65a3b5f2d3fb3dabaa7089a0f7fc9d1fcca43221364e4f7bd/spacy-3.8.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (from https://pypi.org/simple/spacy/) (requires-python:>=3.7))
+#11 32.78 Reason for being yanked: model compatibility problem
+#11 32.84 Downloading Flask-2.3.2-py3-none-any.whl (96 kB)
+#11 32.91 Downloading Flask_Cors-4.0.1-py2.py3-none-any.whl (14 kB)
+#11 32.96 Downloading spacy-3.8.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (29.2 MB)
+#11 45.79    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29.2/29.2 MB 2.4 MB/s eta 0:00:00
+#11 45.86 Downloading fuzzywuzzy-0.18.0-py2.py3-none-any.whl (18 kB)
+#11 45.92 Downloading python_Levenshtein-0.25.1-py3-none-any.whl (9.4 kB)
+#11 45.98 Downloading Levenshtein-0.25.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (177 kB)
+#11 46.08 Downloading catalogue-2.0.10-py3-none-any.whl (17 kB)
+#11 46.14 Downloading cymem-2.0.11-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (208 kB)
+#11 46.26 Downloading langcodes-3.5.0-py3-none-any.whl (182 kB)
+#11 46.35 Downloading murmurhash-1.0.13-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (116 kB)
+#11 46.45 Downloading preshed-3.0.10-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (794 kB)
+#11 46.70    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 794.1/794.1 kB 3.4 MB/s eta 0:00:00
+#11 46.78 Downloading pydantic-2.11.7-py3-none-any.whl (444 kB)
+#11 46.93 Downloading pydantic_core-2.33.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+#11 47.49    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 3.6 MB/s eta 0:00:00
+#11 47.55 Downloading rapidfuzz-3.13.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+#11 48.50    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 3.2 MB/s eta 0:00:00
+#11 48.57 Downloading requests-2.32.4-py3-none-any.whl (64 kB)
+#11 48.64 Downloading charset_normalizer-3.4.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (149 kB)
+#11 48.75 Downloading idna-3.10-py3-none-any.whl (70 kB)
+#11 48.82 Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl (29 kB)
+#11 48.88 Downloading spacy_loggers-1.0.5-py3-none-any.whl (22 kB)
+#11 48.97 Downloading srsly-2.5.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+#11 49.27    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 3.5 MB/s eta 0:00:00
+#11 49.32 Downloading thinc-8.2.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (937 kB)
+#11 49.53    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 937.8/937.8 kB 4.8 MB/s eta 0:00:00
+#11 49.59 Downloading blis-0.7.11-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (10.2 MB)
+#11 59.67    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 989.5 kB/s eta 0:00:00
+#11 59.73 Downloading confection-0.1.5-py3-none-any.whl (35 kB)
+#11 59.80 Downloading numpy-1.26.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+#11 67.11    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 2.5 MB/s eta 0:00:00
+#11 67.17 Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+#11 67.25 Downloading typer-0.16.0-py3-none-any.whl (46 kB)
+#11 67.32 Downloading urllib3-2.5.0-py3-none-any.whl (129 kB)
+#11 67.42 Downloading wasabi-1.1.3-py3-none-any.whl (27 kB)
+#11 67.49 Downloading weasel-0.4.1-py3-none-any.whl (50 kB)
+#11 67.84 Downloading cloudpathlib-0.21.1-py3-none-any.whl (52 kB)
+#11 67.91 Downloading smart_open-7.3.0.post1-py3-none-any.whl (61 kB)
+#11 67.98 Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+#11 68.04 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+#11 68.10 Downloading certifi-2025.7.14-py3-none-any.whl (162 kB)
+#11 68.21 Downloading click-8.1.8-py3-none-any.whl (98 kB)
+#11 68.30 Downloading importlib_metadata-8.7.0-py3-none-any.whl (27 kB)
+#11 68.36 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#11 68.41 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+#11 68.51 Downloading language_data-1.3.0-py3-none-any.whl (5.4 MB)
+#11 70.48    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 2.8 MB/s eta 0:00:00
+#11 70.54 Downloading marisa_trie-1.2.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
+#11 71.74    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 3.2 MB/s eta 0:00:00
+#11 71.80 Downloading MarkupSafe-3.0.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20 kB)
+#11 71.86 Downloading packaging-25.0-py3-none-any.whl (66 kB)
+#11 71.93 Downloading rich-14.1.0-py3-none-any.whl (243 kB)
+#11 72.05 Downloading pygments-2.19.2-py3-none-any.whl (1.2 MB)
+#11 72.49    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 2.7 MB/s eta 0:00:00
+#11 72.55 Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+#11 72.62 Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+#11 72.69 Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+#11 72.75 Downloading typing_extensions-4.14.1-py3-none-any.whl (43 kB)
+#11 72.83 Downloading typing_inspection-0.4.1-py3-none-any.whl (14 kB)
+#11 72.90 Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+#11 73.02 Downloading zipp-3.23.0-py3-none-any.whl (10 kB)
+#11 73.07 Downloading wrapt-1.17.2-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (82 kB)
+#11 74.45 Installing collected packages: fuzzywuzzy, cymem, zipp, wrapt, wasabi, urllib3, typing-extensions, tqdm, spacy-loggers, spacy-legacy, shellingham, rapidfuzz, pygments, packaging, numpy, murmurhash, mdurl, MarkupSafe, marisa-trie, itsdangerous, idna, click, charset_normalizer, certifi, catalogue, blinker, annotated-types, Werkzeug, typing-inspection, srsly, smart-open, requests, pydantic-core, preshed, markdown-it-py, Levenshtein, language-data, Jinja2, importlib-metadata, cloudpathlib, blis, rich, python-Levenshtein, pydantic, langcodes, flask, typer, flask-cors, confection, weasel, thinc, spacy
+#11 116.0 
+#11 116.1 Successfully installed Jinja2-3.1.6 Levenshtein-0.25.1 MarkupSafe-3.0.2 Werkzeug-3.1.3 annotated-types-0.7.0 blinker-1.9.0 blis-0.7.11 catalogue-2.0.10 certifi-2025.7.14 charset_normalizer-3.4.2 click-8.1.8 cloudpathlib-0.21.1 confection-0.1.5 cymem-2.0.11 flask-2.3.2 flask-cors-4.0.1 fuzzywuzzy-0.18.0 idna-3.10 importlib-metadata-8.7.0 itsdangerous-2.2.0 langcodes-3.5.0 language-data-1.3.0 marisa-trie-1.2.1 markdown-it-py-3.0.0 mdurl-0.1.2 murmurhash-1.0.13 numpy-1.26.4 packaging-25.0 preshed-3.0.10 pydantic-2.11.7 pydantic-core-2.33.2 pygments-2.19.2 python-Levenshtein-0.25.1 rapidfuzz-3.13.0 requests-2.32.4 rich-14.1.0 shellingham-1.5.4 smart-open-7.3.0.post1 spacy-3.8.0 spacy-legacy-3.0.12 spacy-loggers-1.0.5 srsly-2.5.1 thinc-8.2.5 tqdm-4.67.1 typer-0.16.0 typing-extensions-4.14.1 typing-inspection-0.4.1 urllib3-2.5.0 wasabi-1.1.3 weasel-0.4.1 wrapt-1.17.2 zipp-3.23.0
+#11 116.1 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#11 119.7 Traceback (most recent call last):
+#11 119.7   File "<string>", line 1, in <module>
+#11 119.7   File "/usr/local/lib/python3.9/site-packages/spacy/__init__.py", line 51, in load
+#11 119.7     return util.load_model(
+#11 119.7   File "/usr/local/lib/python3.9/site-packages/spacy/util.py", line 472, in load_model
+#11 119.7     raise IOError(Errors.E050.format(name=name))
+#11 119.7 OSError: [E050] Can't find model 'en_core_web_sm'. It doesn't seem to be a Python package or a valid path to a data directory.
+#11 ERROR: process "/bin/sh -c pip install --no-cache-dir --upgrade pip     && pip install --no-cache-dir -r requirements.txt     && python -c \"import spacy; nlp = spacy.load('en_core_web_sm'); print('Model loaded successfully')\"" did not complete successfully: exit code: 1
+------
+ > [6/6] RUN pip install --no-cache-dir --upgrade pip     && pip install --no-cache-dir -r requirements.txt     && python -c "import spacy; nlp = spacy.load('en_core_web_sm'); print('Model loaded successfully')":
+116.0 
+116.1 Successfully installed Jinja2-3.1.6 Levenshtein-0.25.1 MarkupSafe-3.0.2 Werkzeug-3.1.3 annotated-types-0.7.0 blinker-1.9.0 blis-0.7.11 catalogue-2.0.10 certifi-2025.7.14 charset_normalizer-3.4.2 click-8.1.8 cloudpathlib-0.21.1 confection-0.1.5 cymem-2.0.11 flask-2.3.2 flask-cors-4.0.1 fuzzywuzzy-0.18.0 idna-3.10 importlib-metadata-8.7.0 itsdangerous-2.2.0 langcodes-3.5.0 language-data-1.3.0 marisa-trie-1.2.1 markdown-it-py-3.0.0 mdurl-0.1.2 murmurhash-1.0.13 numpy-1.26.4 packaging-25.0 preshed-3.0.10 pydantic-2.11.7 pydantic-core-2.33.2 pygments-2.19.2 python-Levenshtein-0.25.1 rapidfuzz-3.13.0 requests-2.32.4 rich-14.1.0 shellingham-1.5.4 smart-open-7.3.0.post1 spacy-3.8.0 spacy-legacy-3.0.12 spacy-loggers-1.0.5 srsly-2.5.1 thinc-8.2.5 tqdm-4.67.1 typer-0.16.0 typing-extensions-4.14.1 typing-inspection-0.4.1 urllib3-2.5.0 wasabi-1.1.3 weasel-0.4.1 wrapt-1.17.2 zipp-3.23.0
+116.1 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+119.7 Traceback (most recent call last):
+119.7   File "<string>", line 1, in <module>
+119.7   File "/usr/local/lib/python3.9/site-packages/spacy/__init__.py", line 51, in load
+119.7     return util.load_model(
+119.7   File "/usr/local/lib/python3.9/site-packages/spacy/util.py", line 472, in load_model
+119.7     raise IOError(Errors.E050.format(name=name))
+119.7 OSError: [E050] Can't find model 'en_core_web_sm'. It doesn't seem to be a Python package or a valid path to a data directory.
+------
+dockerfile.nlp_service:9
+
+--------------------
+
+   8 |     
+
+   9 | >>> RUN pip install --no-cache-dir --upgrade pip \
+
+  10 | >>>     && pip install --no-cache-dir -r requirements.txt \
+
+  11 | >>>     && python -c "import spacy; nlp = spacy.load('en_core_web_sm'); print('Model loaded successfully')"
+
+  12 |     
+
+--------------------
+
+failed to solve: process "/bin/sh -c pip install --no-cache-dir --upgrade pip     && pip install --no-cache-dir -r requirements.txt     && python -c \"import spacy; nlp = spacy.load('en_core_web_sm'); print('Model loaded successfully')\"" did not complete successfully: exit code: 1
+

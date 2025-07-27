@@ -1,0 +1,60 @@
+services:
+  api_gateway:
+    build:
+      context: .
+      dockerfile: dockerfile.api_gateway
+    ports:
+      - "5000:5000"
+    networks:
+      - chatbot_network
+    depends_on:
+      - user_service
+      - nlp_service
+      - dialogue_service
+
+  user_service:
+    build:
+      context: .
+      dockerfile: dockerfile.user_service
+    ports:
+      - "5001:5001"
+    networks:
+      - chatbot_network
+    volumes:
+      - ./data/users.db:/app/users.db
+
+  nlp_service:
+    build:
+      context: .
+      dockerfile: dockerfile.nlp_service
+    ports:
+      - "5002:5002"
+    networks:
+      - chatbot_network
+
+  dialogue_service:
+    build:
+      context: .
+      dockerfile: dockerfile.dialogue_service
+    ports:
+      - "5003:5003"
+    networks:
+      - chatbot_network
+    volumes:
+      - ./data/conversations.db:/app/conversations.db
+
+  frontend:
+    build:
+      context: .
+      dockerfile: dockerfile.frontend
+    ports:
+      - "8000:8000"
+    networks:
+      - chatbot_network
+
+networks:
+  chatbot_network:
+    driver: bridge
+
+volumes:
+  data:
