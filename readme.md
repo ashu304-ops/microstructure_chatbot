@@ -1,341 +1,193 @@
-Mechanical Domain Chatbot
 
-This project is a Dockerized web application that answers mechanical engineering questions (e.g., “What is Young’s modulus?”) using a microservice architecture. It leverages natural language processing (NLP) to detect user intents and provides responses from a knowledge base. The application is built with Flask microservices, a React frontend, and orchestrated with Docker Compose.
-This README.md explains the microservice architecture and provides step-by-step instructions to set up and run the application.
+# Dockerized Mechanical Domain Chatbot — Your Engineering Q&A Assistant 🤖⚙️
 
+A **Dockerized microservice web application** designed to answer mechanical engineering questions like *“What is Young’s modulus?”* leveraging **NLP** for intent detection and a knowledge base for accurate responses.
 
-Table of Contents
+---
 
-Overview
-Microservice Architecture
-Project Structure
-Prerequisites
-Setup Instructions
-Running the Application
-Testing the Application
-Troubleshooting
-Contributing
+## 🚀 Project Overview
 
-Overview
-The Mechanical Domain Chatbot is designed to answer questions about mechanical engineering concepts like stress, Young’s modulus, and thermodynamics. It uses a microservice architecture where each service handles a specific function (e.g., user management, NLP, dialogue generation). All services run in Docker containers, communicate over a network, and store data in SQLite databases.
-Microservice Architecture
-The application is split into five independent microservices, each with a specific role:
+The Mechanical Domain Chatbot helps users explore core mechanical engineering concepts (stress, Young’s modulus, thermodynamics) through natural language conversations. The backend is split into independent Flask microservices, each handling distinct tasks like user management, NLP processing, or dialogue generation.
 
-api_gateway (Port 5000):
+Everything runs in Docker containers, orchestrated by Docker Compose, making setup, scaling, and deployment simple and efficient.
 
-Purpose: Acts as the entry point for user requests, routing them to the appropriate microservices (e.g., nlp_service for intent detection, dialogue_service for responses).
-Tech: Flask, handles HTTP requests and orchestrates communication.
-Interactions: Receives user input via /chat endpoint, forwards to nlp_service for intent, then to dialogue_service for responses, and stores user data via user_service.
+---
 
+## 🏗️ Microservice Architecture
 
-user_service (Port 5001):
+| Service              | Port | Role                                                       | Tech Stack                |
+| -------------------- | ---- | ---------------------------------------------------------- | ------------------------- |
+| **api_gateway**      | 5000 | Entry point routing user requests to appropriate services  | Flask, HTTP REST API      |
+| **user_service**     | 5001 | Manages user data (IDs, preferences)                       | Flask, SQLite             |
+| **nlp_service**      | 5002 | Detects user intent using NLP (spaCy en_core_web_sm model) | Flask, spaCy              |
+| **dialogue_service** | 5003 | Generates replies from knowledge base, logs conversations  | Flask, SQLite, FuzzyWuzzy |
+| **frontend**         | 8000 | React-based user interface for chatting                    | React, HTTP API           |
 
-Purpose: Manages user data (e.g., user ID, name, preferences).
-Tech: Flask, SQLite (users.db).
-Interactions: Stores/retrieves user data via /user endpoint, used by api_gateway for user context.
+---
 
+## 🔍 How It Works — Data Flow
 
-nlp_service (Port 5002):
+1. User interacts with the **frontend** (React app).
+2. Messages are sent to **api_gateway** which orchestrates:
 
-Purpose: Processes user messages to detect intents (e.g., material_query for “What is Young’s modulus?”).
-Tech: Flask, spaCy (en_core_web_sm model).
-Interactions: Receives messages from api_gateway via /process endpoint, returns detected intent.
+   * Calls **nlp_service** to detect intent.
+   * Calls **dialogue_service** to generate the appropriate response.
+   * Uses **user_service** for user context and data management.
+3. Responses are relayed back to the frontend for display.
 
+---
 
-dialogue_service (Port 5003):
+## 🗂️ Project Structure
 
-Purpose: Generates responses based on intents using a knowledge base (mechanical_knowledge.json).
-Tech: Flask, SQLite (conversations.db), FuzzyWuzzy for matching.
-Interactions: Receives intent and message from api_gateway via /dialogue endpoint, returns responses, logs conversations.
-
-
-frontend (Port 8000):
-
-Purpose: Provides a user-friendly web interface for interacting with the chatbot.
-Tech: React, communicates with api_gateway via HTTP requests.
-Interactions: Sends user messages to /chat endpoint and displays responses.
-
-
-
-Architecture Diagram
-
-
-
-
-
-
-+-------------------+
-|     Frontend      |  (React, http://localhost:8000)
-|     (Port 8000)   |
-+-------------------+
-          |
-          v
-+-------------------+
-|    API Gateway    |  (Flask, http://localhost:5000)
-|     (Port 5000)   |
-+-------------------+
-          |
-          v
-+-------------------+    +-------------------+    +-------------------+
-|    User Service   |    |    NLP Service    |    | Dialogue Service  |
-| (Flask, Port 5001)|<-->| (Flask, Port 5002)|<-->| (Flask, Port 5003)|
-|   SQLite:         |    |   spaCy:          |    |   SQLite:         |
-|   users.db        |    |   en_core_web_sm  |    |   conversations.db|
-+-------------------+    +-------------------+    +-------------------+
-
-
-Communication: Services communicate over a Docker network (chatbot_network) using HTTP REST APIs.
-Data Storage: users.db and conversations.db are stored in a shared data directory, mounted via Docker volumes.
-Scalability: Each service can be scaled independently with Docker Compose.
-
-Project Structure
-
-
+```
 project1/
-├── data/
+├── data/                          # SQLite databases storage
 │   ├── users.db
 │   └── conversations.db
-├── en_core_web_sm/
-│   └── en_core_web_sm-3.8.0/
-│       ├── config.cfg
-│       ├── meta.json
-│       ├── vocab/
-│       └── ...
+├── en_core_web_sm/                # spaCy NLP model files
 ├── api_gateway.py
 ├── dialogue_service.py
 ├── nlp_service.py
 ├── user_service.py
-├── mechanical_knowledge.json
+├── mechanical_knowledge.json      # Knowledge base of mechanical Q&A
 ├── requirements.txt
 ├── docker-compose.yml
-├── Dockerfile.api_gateway
-├── Dockerfile.user_service
-├── Dockerfile.nlp_service
-├── Dockerfile.dialogue_service
-├── Dockerfile.frontend
-├── frontend/
-│   ├── src/
-│   ├── public/
-│   └── ...
+├── Dockerfile.*                   # Dockerfiles for each service
+├── frontend/                      # React frontend source
 └── README.md
+```
 
-Prerequisites
+---
 
-Docker: Install Docker and Docker Compose.
-Linux: sudo apt-get install docker.io docker-compose
-Windows/Mac: Install Docker Desktop.
+## ⚙️ Prerequisites
 
+* **Docker & Docker Compose** installed
+* (Optional) **Python 3.9** for local testing
+* (Optional) **Node.js** for frontend development
+* Internet connection for initial setup
 
-Python 3.9: For local testing (optional).
-Node.js: For frontend development (optional).
-Internet access: For initial dependency downloads.
+---
 
-Setup Instructions
-Follow these steps to set up the project on your machine.
+## 🛠️ Setup Instructions
 
-Clone the Repository:
+### 1. Clone the repository
+
+```bash
 git clone <repository-url>
 cd project1
+```
 
+### 2. Prepare data directory and databases
 
-Create the Data Directory:Create a directory for SQLite databases and set permissions:
+```bash
 mkdir -p data
 chmod 777 data
-touch data/users.db
-touch data/conversations.db
-chmod 666 data/users.db
-chmod 666 data/conversations.db
+touch data/users.db data/conversations.db
+chmod 666 data/users.db data/conversations.db
+```
 
+### 3. Verify spaCy model presence
 
-Set Up the spaCy Model:The nlp_service uses the en_core_web_sm model for NLP, included in en_core_web_sm/. Verify its contents:
-ls -R en_core_web_sm/en_core_web_sm-3.8.0
+Ensure the folder `en_core_web_sm/en_core_web_sm-3.8.0` contains model files (`config.cfg`, `meta.json`, `vocab/`).
 
-Ensure config.cfg, meta.json, vocab/, etc., are present. If missing, install locally:
+If missing:
+
+```bash
 python3 -m venv env
 source env/bin/activate
 pip install spacy==3.8.0
 python -m spacy download en_core_web_sm
 cp -r env/lib/python3.9/site-packages/en_core_web_sm .
+```
 
+---
 
-Verify Configuration Files:
+## 🚢 Running the Application
 
-requirements.txt:flask==2.3.2
-flask-cors==4.0.1
-spacy==3.8.0
-fuzzywuzzy==0.18.0
-python-Levenshtein==0.25.1
+### Build Docker containers
 
-
-mechanical_knowledge.json:[
-    {
-        "question": "What is Young’s modulus?",
-        "answer": "Young’s modulus (E) is a measure of a material’s stiffness, defined as the ratio of stress to strain in the linear elastic region. It’s given by E = σ/ε, where σ is stress and ε is strain.",
-        "intents": ["material_query"]
-    }
-]
-
-
-docker-compose.yml:services:
-  api_gateway:
-    build:
-      context: .
-      dockerfile: Dockerfile.api_gateway
-    ports:
-      - "5000:5000"
-    networks:
-      - chatbot_network
-    depends_on:
-      - user_service
-      - nlp_service
-      - dialogue_service
-
-  user_service:
-    build:
-      context: .
-      dockerfile: Dockerfile.user_service
-    ports:
-      - "5001:5001"
-    networks:
-      - chatbot_network
-    volumes:
-      - ./data:/app/data
-    environment:
-      - DB_PATH=/app/data/users.db
-
-  nlp_service:
-    build:
-      context: .
-      dockerfile: Dockerfile.nlp_service
-    ports:
-      - "5002:5002"
-    networks:
-      - chatbot_network
-
-  dialogue_service:
-    build:
-      context: .
-      dockerfile: Dockerfile.dialogue_service
-    ports:
-      - "5003:5003"
-    networks:
-      - chatbot_network
-    volumes:
-      - ./data:/app/data
-    environment:
-      - DB_PATH=/app/data/conversations.db
-
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
-    ports:
-      - "8000:8000"
-    networks:
-      - chatbot_network
-
-networks:
-  chatbot_network:
-    driver: bridge
-
-
-
-
-Verify Dockerfiles:
-
-Dockerfile.nlp_service:FROM python:3.9-slim
-WORKDIR /app
-COPY nlp_service.py .
-COPY requirements.txt .
-COPY en_core_web_sm/en_core_web_sm-3.8.0 /usr/local/lib/python3.9/site-packages/en_core_web_sm
-RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt \
-    && python -c "import spacy; nlp = spacy.load('en_core_web_sm'); print('Model loaded successfully')"
-EXPOSE 5002
-CMD ["python", "nlp_service.py"]
-
-
-Dockerfile.user_service:FROM python:3.9-slim
-WORKDIR /app
-COPY user_service.py .
-COPY requirements.txt .
-RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt \
-    && mkdir -p /app/data \
-    && chmod 777 /app/data
-EXPOSE 5001
-CMD ["python", "user_service.py"]
-
-
-Dockerfile.dialogue_service:FROM python:3.9-slim
-WORKDIR /app
-COPY dialogue_service.py .
-COPY mechanical_knowledge.json .
-COPY requirements.txt .
-RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt \
-    && mkdir -p /app/data \
-    && chmod 777 /app/data
-EXPOSE 5003
-CMD ["python", "dialogue_service.py"]
-
-
-
-
-
-Running the Application
-
-Build the Containers:
+```bash
 docker-compose build
+```
 
-This builds images for all services, including installing dependencies and copying the en_core_web_sm model for nlp_service.
+### Start all services
 
-Start the Containers:
+```bash
 docker-compose up
+```
 
-This starts:
+Access services at:
 
-api_gateway: http://localhost:5000
-user_service: http://localhost:5001
-nlp_service: http://localhost:5002
-dialogue_service: http://localhost:5003
-frontend: http://localhost:8000
+* Frontend: [http://localhost:8000](http://localhost:8000)
+* API Gateway: [http://localhost:5000](http://localhost:5000)
 
+---
 
-Check Logs:
-docker-compose logs
+## ✅ Testing the Chatbot
 
-Look for:
+### Test via API (curl)
 
-nlp_service: Running on http://0.0.0.0:5002 and Model loaded successfully
-user_service: Running on http://0.0.0.0:5001
-dialogue_service: Running on http://0.0.0.0:5003
+```bash
+curl -X POST -H "Content-Type: application/json" \
+-d '{"user_id":"user1","message":"What is Young’s modulus?"}' \
+http://localhost:5000/chat
+```
 
+Expected response:
 
+```json
+{
+  "response": "Young’s modulus (E) is a measure of a material’s stiffness, defined as the ratio of stress to strain in the linear elastic region. It’s given by E = σ/ε, where σ is stress and ε is strain."
+}
+```
 
-Testing the Application
+### Test Frontend
 
-Test the API:
-curl -X POST -H "Content-Type: application/json" -d '{"user_id":"user1","message":"What is Young’s modulus?"}' http://localhost:5000/chat
+* Open [http://localhost:8000](http://localhost:8000)
+* Ask a mechanical engineering question, e.g., “What is Young’s modulus?”
+* Get instant, detailed answers!
+
+---
+
+## 🔧 Test Individual Microservices
+
+* **NLP Service**
+
+```bash
+curl -X POST -H "Content-Type: application/json" \
+-d '{"message":"What is Young’s modulus?"}' \
+http://localhost:5002/process
+```
 
 Expected:
-{"response":"Young’s modulus (E) is a measure of a material’s stiffness, defined as the ratio of stress to strain in the linear elastic region. It’s given by E = σ/ε, where σ is stress and ε is strain."}
 
+```json
+{"intent":"material_query"}
+```
 
-Test the Frontend:
+* **User Service**
 
-Open http://localhost:8000 in a browser.
-Type “What is Young’s modulus?” in the chat interface.
-Verify the response matches the above.
+```bash
+curl -X POST -H "Content-Type: application/json" \
+-d '{"user_id":"user1","name":"John","preferences":"mechanical"}' \
+http://localhost:5001/user
+```
 
+Expected:
 
-Test Individual Services:
+```json
+{"status":"User created","user_id":"user1"}
+```
 
-nlp_service:curl -X POST -H "Content-Type: application/json" -d '{"message":"What is Young’s modulus?"}' http://localhost:5002/process
+---
 
-Expected: {"intent":"material_query"}
-user_service:curl -X POST -H "Content-Type: application/json" -d '{"user_id":"user1","name":"John","preferences":"mechanical"}' http://localhost:5001/user
+## ⚠️ Troubleshooting Tips
 
-Expected: {"status":"User created","user_id":"user1"}
+* Ensure Docker daemon is running.
+* Verify ports 5000-5003 and 8000 are free.
+* Check logs with `docker-compose logs`.
+* Confirm spaCy model files exist in `en_core_web_sm`.
+* Rebuild containers after dependency or code changes.
 
+---
 
